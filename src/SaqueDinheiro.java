@@ -13,7 +13,7 @@ public class SaqueDinheiro extends ContaCorrente {
         System.out.println("Seu saldo é "+ saldo);
 
             System.out.println("Digite o valor que deseja sacar: 10, 20, 50, 100: ");
-            Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(Sygit stem.in);
             Integer valor = scanner.nextInt();
 
             if (saldo >= valorSaque) {
