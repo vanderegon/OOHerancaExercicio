@@ -1,29 +1,34 @@
 
-git
-import java.util.Scanner;
+import java.util.*;
 
 public class SaqueDinheiro extends ContaCorrente {
 
-
     public void ValorSaque() {
 
-        double valorSaque = 10 - 20 - 50 - 100;
-
+        List<Double> valoresPermitidos = new ArrayList<>();
+        valoresPermitidos.add(10.0);
+        valoresPermitidos.add(20.0);
+        valoresPermitidos.add(50.0);
+        valoresPermitidos.add(100.0);
 
         System.out.println("Seu saldo é "+ saldo);
 
-            System.out.println("Digite o valor que deseja sacar: 10, 20, 50, 100: ");
-            Scanner scanner = new Scanner(Sygit stem.in);
-            Integer valor = scanner.nextInt();
+        System.out.println("Informe valor de Saque: 10, 20, 50, 100: ");
+        Scanner scanner = new Scanner(System.in);
+        Double valor = scanner.nextDouble();
 
-            if (saldo >= valorSaque) {
-                System.out.println("Saque Autorizado ");
-            } else if (saldo != valorSaque){
-                System.out.println("Escolha outro valor");
-            }else {
-                System.out.println("Saldo Insulficiente ");
+        double valorSacado = saldo -= valor;
+
+        if (saldo >= valor) {
+            if (valoresPermitidos.contains(valor)) {
+                System.out.println("Saque autorizado");
+                System.out.println("Seu novo Saldo R$ " + valorSacado);
+            } else {
+                System.out.println("Valor não disponível");
             }
-
+        }else {
+            System.out.println("Saldo insulficiente");
+        }
     }
 
     public SaqueDinheiro(int numero, int agencia, String banco, double saldo, double chequeEspecial) {
@@ -41,9 +46,3 @@ public class SaqueDinheiro extends ContaCorrente {
         return this.saldo;
     }
 }
-
-
-
-
-
-
