@@ -1,54 +1,35 @@
-public abstract class Conta {
-    private int numero;
-    private int agencia;
-    private String banco;
-    protected double saldo;
+import java.util.Scanner;
 
-    public int getNumero() {
-        return numero;
+public class ContaPoupanca extends Conta {
+
+
+    private int diaAniversario;
+    private double taxaDeJuros;
+
+
+    public ContaPoupanca(int numero, int agencia, String banco, double saldo, int diaAniversario, double tacaDeJuros) {
+        super(numero, agencia, banco, saldo);
+        this.diaAniversario = diaAniversario;
+        this.taxaDeJuros = tacaDeJuros;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public double getSaldo() {
+        return this.saldo + this.taxaDeJuros * this.saldo;
     }
 
-    public int getAgencia() {
-        return agencia;
-    }
+    public void ValorDepositoPoupanca() {
 
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
-    }
+        System.out.println("Informe o valor de investimento R$ ");
 
-    public String getBanco() {
-        return banco;
-    }
+        Scanner scanner = new Scanner(System.in);
+        Double valorDeposito = scanner.nextDouble();
 
-    public void setBanco(String banco) {
-        this.banco = banco;
-    }
+        double valorDep = saldo += valorDeposito;
 
-    public abstract double getSaldo();
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-
-    public Conta(int numero, int agencia, String banco, double saldo) {
-        this.numero = numero;
-        this.agencia = agencia;
-        this.banco = banco;
-        this.saldo = saldo;
-    }
-
-    @Override
-    public String toString() {
-        return "Conta{" +
-                "numero=" + numero +
-                ", agencia=" + agencia +
-                ", banco='" + banco + '\'' +
-                ", saldo=" + saldo +
-                '}';
+        if (saldo >= valorDeposito) {
+            System.out.println("Seu novo Saldo R$  " + valorDep);
+            System.out.println("Saldo mais taxa R$ " + this.saldo * this.taxaDeJuros);
+        }
     }
 }
+
