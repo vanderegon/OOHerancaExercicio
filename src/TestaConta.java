@@ -16,11 +16,19 @@ public class TestaConta {
         System.out.println("Saldo Conta Salario"+ cS);
 
         SaqueDinheiro sQ = new SaqueDinheiro(1,1,"Banco CC",100.00,1000.00);
-        sQ.ValorSaque();
+        //sQ.ValorSaque();
+
+        Deposito dP = new Deposito(1,1,"Banco CC",100.00,1000.00);
+        //dP.ValorDeposito();
+
+        MenuMenu menu1 = new MenuMenu();
+        menu1.imprimeMenu();
+
+        Menu menu = new Menu();
+        menu.Menu();
 
 
 
     }
-
 
 }
