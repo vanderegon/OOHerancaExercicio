@@ -16,13 +16,13 @@ public class Deposito extends ContaCorrente {
         }
 
     }
-    
+
     public Deposito( int numero, int agencia, String banco,double saldo, double chequeEspecial){
         super(numero, agencia, banco, saldo, chequeEspecial);
     }
 
-        @Override
-        public String toString () {
+    @Override
+    public String toString () {
         return "Deposito{" +
                 "saldo=" + saldo +
                 '}';
@@ -32,4 +32,3 @@ public class Deposito extends ContaCorrente {
     }
 
 }
-

@@ -1,35 +1,54 @@
-import java.util.Scanner;
+public abstract class Conta {
 
-public class ContaPoupanca extends Conta {
+    private int numero;
+    private int agencia;
+    private String banco;
+    protected double saldo;
 
-
-    private int diaAniversario;
-    private double taxaDeJuros;
-
-
-    public ContaPoupanca(int numero, int agencia, String banco, double saldo, int diaAniversario, double tacaDeJuros) {
-        super(numero, agencia, banco, saldo);
-        this.diaAniversario = diaAniversario;
-        this.taxaDeJuros = tacaDeJuros;
+    public int getNumero() {
+        return numero;
     }
 
-    public double getSaldo() {
-        return this.saldo + this.taxaDeJuros * this.saldo;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public void ValorDepositoPoupanca() {
+    public int getAgencia() {
+        return agencia;
+    }
 
-        System.out.println("Informe o valor de investimento R$ ");
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        Double valorDeposito = scanner.nextDouble();
+    public String getBanco() {
+        return banco;
+    }
 
-        double valorDep = saldo += valorDeposito;
+    public void setBanco(String banco) {
+        this.banco = banco;
+    }
 
-        if (saldo >= valorDeposito) {
-            System.out.println("Seu novo Saldo R$  " + valorDep);
-            System.out.println("Saldo mais taxa R$ " + this.saldo * this.taxaDeJuros);
-        }
+    public abstract double getSaldo();
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public Conta(int numero, int agencia, String banco, double saldo) {
+        this.numero = numero;
+        this.agencia = agencia;
+        this.banco = banco;
+        this.saldo = saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "numero=" + numero +
+                ", agencia=" + agencia +
+                ", banco='" + banco + '\'' +
+                ", saldo=" + saldo +
+                '}';
     }
 }
-
