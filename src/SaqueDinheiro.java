@@ -33,6 +33,7 @@ public class SaqueDinheiro extends ContaCorrente {
 
     public SaqueDinheiro(int numero, int agencia, String banco, double saldo, double chequeEspecial) {
         super(numero, agencia, banco, saldo, chequeEspecial);
+
     }
 
     @Override
