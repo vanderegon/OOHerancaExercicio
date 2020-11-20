@@ -3,7 +3,15 @@ public abstract class Conta {
     private int numero;
     private int agencia;
     private String banco;
-    private double saldoContaCorrente;
+    protected double saldo;
+    protected double saldoChequeEspecial;
+
+    public Conta(int numero, int agencia, String banco, double saldo) {
+        this.numero = numero;
+        this.agencia = agencia;
+        this.banco = banco;
+        this.saldo = saldo;
+    }
 
     public int getNumero() {
         return numero;
@@ -31,24 +39,6 @@ public abstract class Conta {
 
     public abstract double getSaldo();
 
-    public void setSaldo(double saldo) {
-        this.saldoContaCorrente = saldo;
-    }
-
-    public Conta(int numero, int agencia, String banco, double saldo) {
-        this.numero = numero;
-        this.agencia = agencia;
-        this.banco = banco;
-        this.saldoContaCorrente = saldo;
-    }
-
-    @Override
-    public String toString() {
-        return "Conta{" +
-                "numero=" + numero +
-                ", agencia=" + agencia +
-                ", banco='" + banco + '\'' +
-                ", saldo=" + saldoContaCorrente +
-                '}';
-    }
+    public abstract void setSaldo(double saldo);
 }
+

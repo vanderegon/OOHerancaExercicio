@@ -12,11 +12,17 @@ public class ContaPoupanca extends Conta {
         super(numero, agencia, banco, saldo);
         this.diaAniversario = diaAniversario;
         this.taxaDeJuros = taxaDeJuros;
-        this.saldoContaPoupanca = saldo;
+        this.saldo = saldo;
     }
 
+    @Override
     public double getSaldo() {
         return this.saldoContaPoupanca + this.taxaDeJuros * this.saldoContaPoupanca;
+    }
+
+    @Override
+    public void setSaldo(double saldo) {
+
     }
 
     public boolean ValorDepositoPoupanca() {
@@ -24,7 +30,7 @@ public class ContaPoupanca extends Conta {
         System.out.println("Informe o valor de investimento R$ ");
 
         Scanner scanner = new Scanner(System.in);
-        Double valorDeposito = scanner.nextDouble();
+        double valorDeposito = scanner.nextDouble();
 
         double valorDep = saldoContaPoupanca += valorDeposito;
 
@@ -34,7 +40,6 @@ public class ContaPoupanca extends Conta {
             System.out.println("Transação realizada com sucesso \n " +
                     "Deseja fazer nova operaçao? Escolha 1 para (Sim) ou aperte 2) para sair: ");
             saldoContaPoupanca = valorDep;
-            setSaldo(getSaldo() - valorDeposito);
             return true;
         }else{
             System.out.println("Saldo insulficiente ");

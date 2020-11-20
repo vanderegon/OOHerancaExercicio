@@ -26,6 +26,11 @@ public class ContaSalario extends Conta {
         return this.saldoContaSalario + this.SALARIO;
     }
 
+    @Override
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
     public boolean limiteSaqueSalario() {
 
         List<Double> valoresPermitidos = new ArrayList<>();
