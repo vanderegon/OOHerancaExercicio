@@ -22,7 +22,7 @@ public class ContaPoupanca extends Conta {
 
     @Override
     public void setSaldo(double saldo) {
-
+        this.saldo = saldo;
     }
 
     public boolean ValorDepositoPoupanca() {

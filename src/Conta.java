@@ -5,6 +5,7 @@ public abstract class Conta {
     private String banco;
     protected double saldo;
     protected double saldoChequeEspecial;
+    protected double saldoContaCorrente;
 
     public Conta(int numero, int agencia, String banco, double saldo) {
         this.numero = numero;
