@@ -21,6 +21,7 @@ public class ContaCorrente extends Conta {
                 '}';
     }
 
+    @Override
     public double getSaldo(){
         return  this.chequeEspecial + this.saldoContaCorrente;
     }

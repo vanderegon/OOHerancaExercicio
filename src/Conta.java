@@ -29,9 +29,7 @@ public abstract class Conta {
         this.banco = banco;
     }
 
-    public double getSaldo(){
-        return this.saldoContaCorrente;
-    }
+    public abstract double getSaldo();
 
     public void setSaldo(double saldo) {
         this.saldoContaCorrente = saldo;
