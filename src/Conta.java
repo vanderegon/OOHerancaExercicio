@@ -3,7 +3,7 @@ public abstract class Conta {
     private int numero;
     private int agencia;
     private String banco;
-    protected double saldo;
+    private double saldoContaCorrente;
 
     public int getNumero() {
         return numero;
@@ -29,17 +29,19 @@ public abstract class Conta {
         this.banco = banco;
     }
 
-    public abstract double getSaldo();
+    public double getSaldo(){
+        return this.saldoContaCorrente;
+    }
 
     public void setSaldo(double saldo) {
-        this.saldo = saldo;
+        this.saldoContaCorrente = saldo;
     }
 
     public Conta(int numero, int agencia, String banco, double saldo) {
         this.numero = numero;
         this.agencia = agencia;
         this.banco = banco;
-        this.saldo = saldo;
+        this.saldoContaCorrente = saldo;
     }
 
     @Override
@@ -48,7 +50,7 @@ public abstract class Conta {
                 "numero=" + numero +
                 ", agencia=" + agencia +
                 ", banco='" + banco + '\'' +
-                ", saldo=" + saldo +
+                ", saldo=" + saldoContaCorrente +
                 '}';
     }
 }

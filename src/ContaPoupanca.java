@@ -5,30 +5,40 @@ public class ContaPoupanca extends Conta {
 
     private int diaAniversario;
     private double taxaDeJuros;
+    private double saldoContaPoupanca;
 
 
-    public ContaPoupanca(int numero, int agencia, String banco, double saldo, int diaAniversario, double tacaDeJuros) {
+    public ContaPoupanca(int numero, int agencia, String banco, double saldo, int diaAniversario, double taxaDeJuros) {
         super(numero, agencia, banco, saldo);
         this.diaAniversario = diaAniversario;
-        this.taxaDeJuros = tacaDeJuros;
+        this.taxaDeJuros = taxaDeJuros;
+        this.saldoContaPoupanca = saldo;
     }
 
     public double getSaldo() {
-        return this.saldo + this.taxaDeJuros * this.saldo;
+        return this.saldoContaPoupanca + this.taxaDeJuros * this.saldoContaPoupanca;
     }
 
-    public void ValorDepositoPoupanca() {
+    public boolean ValorDepositoPoupanca() {
 
         System.out.println("Informe o valor de investimento R$ ");
 
         Scanner scanner = new Scanner(System.in);
         Double valorDeposito = scanner.nextDouble();
 
-        double valorDep = saldo += valorDeposito;
+        double valorDep = saldoContaPoupanca += valorDeposito;
 
-        if (saldo >= valorDeposito) {
+        if (getSaldo() >= valorDeposito) {
             System.out.println("Seu novo Saldo R$  " + valorDep);
-            System.out.println("Saldo mais taxa R$ " + this.saldo * this.taxaDeJuros);
+            System.out.println("Saldo mais taxa R$ " + this.saldoContaPoupanca * this.taxaDeJuros);
+            System.out.println("Transação realizada com sucesso \n " +
+                    "Deseja fazer nova operaçao? Escolha 1 para (Sim) ou aperte 2) para sair: ");
+            saldoContaPoupanca = valorDep;
+            setSaldo(getSaldo() - valorDeposito);
+            return true;
+        }else{
+            System.out.println("Saldo insulficiente ");
+            return false;
         }
     }
 }

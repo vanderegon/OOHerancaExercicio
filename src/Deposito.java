@@ -9,11 +9,13 @@ public class Deposito extends ContaCorrente {
         Scanner scanner = new Scanner(System.in);
         Double valorDeposito = scanner.nextDouble();
 
-        double valorDep = saldo += valorDeposito;
+        double valorDep = this.saldoContaCorrente += valorDeposito;
 
-        if(saldo >= valorDeposito){
             System.out.println("Seu novo Saldo R$ "+ valorDep);
-        }
+            System.out.println("Transação realizada com sucesso \n Deseja fazer nova operaçao? " +
+                    "Escolha 1 para (Sim) ou aperte qualquer botão numérico para sair\"); ");
+            saldoContaCorrente = valorDep;
+
 
     }
 
@@ -24,11 +26,11 @@ public class Deposito extends ContaCorrente {
     @Override
     public String toString () {
         return "Deposito{" +
-                "saldo=" + saldo +
+                "saldo=" + this.saldoContaCorrente +
                 '}';
     }
     public double getSaldo(){
-        return this.saldo;
+        return this.saldoContaCorrente;
     }
 
 }
