@@ -31,16 +31,13 @@ public class ContaCorrente extends Conta {
         Scanner scanner = new Scanner(System.in);
         double valor = scanner.nextDouble();
 
-        double valorSacado = this.saldoContaCorrente - valor;
-        double valorSacadoChequeEspecial = this.saldoChequeEspecial - valor;
-
         if (this.saldoContaCorrente >= valor) {
             if (valoresPermitidos.contains(valor)) {
 
-                this.saldoContaCorrente = valorSacado;
+                this.saldoContaCorrente = this.saldoContaCorrente - valor;
 
                 System.out.println("Saque autorizado");
-                System.out.println("Seu novo Saldo R$ " + valorSacado);
+                System.out.println("Seu novo Saldo R$ " + saldoContaCorrente);
                 System.out.println("Transação realizada com sucesso \n Deseja realizar novo saque? " +
                         "\n Escolha 1 para (Sim) ou aperte 2 para voltar ao menu principal");
 
@@ -59,7 +56,8 @@ public class ContaCorrente extends Conta {
 
             if(escolha == 1){
 
-                this.saldoChequeEspecial = valorSacadoChequeEspecial;
+                this.saldoChequeEspecial = this.saldoChequeEspecial - valor;
+
                 saldoContaCorrente = saldoContaCorrente - valor;
 
                 System.out.println("Saque cheque especial autorizado");
@@ -86,22 +84,14 @@ public class ContaCorrente extends Conta {
         Scanner scanner = new Scanner(System.in);
         double valorDeposito = scanner.nextDouble();
 
-        double valorDep = this.saldoContaCorrente += valorDeposito;
-
-        if(this.saldoContaCorrente < 0){
-            double diferenca = this.chequeEspecial - this.saldoChequeEspecial;
-
-            if(diferenca == valorDeposito){
-                this.saldoChequeEspecial += valorDeposito;
-            }
-
+        if(saldoChequeEspecial < chequeEspecial){
+            this.saldoContaCorrente += valorDeposito;
+            this.saldoChequeEspecial += valorDeposito;
         }
 
-        System.out.println("Seu novo Saldo R$ "+ valorDep);
+        System.out.println("Seu novo Saldo R$ "+ saldoContaCorrente);
         System.out.println("Transação realizada com sucesso \n Deseja fazer nova operaçao? " +
                 "Escolha 1 para (Sim) ou aperte qualquer botão numérico para sair\"); ");
-
-        this.saldoContaCorrente = valorDep;
     }
 
     @Override
